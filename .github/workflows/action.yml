@@ -1,0 +1,23 @@
+# File: .github/workflows/python.yml
+name: Python package
+
+on: [push,pull_request]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+    # checkout the repo
+    - name: Cloning repository
+      uses: actions/checkout@master
+    
+    - name: App Service Web App Build Action
+      uses: Azure/appservice-build@v1
+
+# Azure login
+#     - name: Deploying web app to Azure
+#       uses: azure/webapps-deploy@v1
+#       with:
+#         app-name: python-docs-hello-world
+#         publish-profile: ${{ secrets.AZURE_WEB_APP_PUBLISH_PROFILE }}

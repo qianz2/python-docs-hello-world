@@ -11,6 +11,8 @@ jobs:
     # checkout the repo
     - name: Cloning repository
       uses: actions/checkout@master
+    
+    - name: echo URL
       run: echo "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs"
       
     - name: App Service Web App Build Action

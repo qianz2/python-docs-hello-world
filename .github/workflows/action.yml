@@ -7,15 +7,15 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-
+    
     # checkout the repo
     - name: Cloning repository
       uses: actions/checkout@master
-    
+      run: echo "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs"
+      
     - name: App Service Web App Build Action
       uses: qianz2/appservice-build@master
      
-
 # Azure login
 #     - name: Deploying web app to Azure
 #       uses: azure/webapps-deploy@v1

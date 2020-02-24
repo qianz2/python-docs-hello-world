@@ -1,23 +1,75 @@
 # File: .github/workflows/python.yml
-name: Python package
+# name: Python package
 
-on: [push,pull_request]
+# on: [push,pull_request]
+
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+    
+#     # checkout the repo
+#     - name: Cloning repository
+#       uses: actions/checkout@master
+    
+#     - name: Get current run metadata using curL
+#       run: curl -X GET "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs"
+       
+#     - name: App Service Web App Build Action
+#       uses: qianz2/appservice-build@master
+
+
+name: Share data between jobs
+
+on: [push]
 
 jobs:
-  build-and-deploy:
+  job_1:
+    name: Add 3 and 7
     runs-on: ubuntu-latest
     steps:
-    
-    # checkout the repo
-    - name: Cloning repository
-      uses: actions/checkout@master
-    
-    - name: Get current run metadata using curL
-      run: curl -X GET "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs"
-       
-    - name: App Service Web App Build Action
-      uses: qianz2/appservice-build@master
+      - shell: bash
+        run: |
+          expr 3 + 7 > math-homework.txt
+      - name: Upload math result for job 1
+        uses: actions/upload-artifact@v1
+        with:
+          name: homework
+          path: math-homework.txt
 
+  job_2:
+    name: Multiply by 9
+    needs: job_1
+    runs-on: windows-latest
+    steps:
+      - name: Download math result for job 1
+        uses: actions/download-artifact@v1
+        with:
+          name: homework
+      - shell: bash
+        run: |
+          value=`cat homework/math-homework.txt`
+          expr $value \* 9 > homework/math-homework.txt
+      - name: Upload math result for job 2
+        uses: actions/upload-artifact@v1
+        with:
+          name: homework
+          path: homework/math-homework.txt
+
+  job_3:
+    name: Display results
+    needs: job_2
+    runs-on: macOS-latest
+    steps:
+      - name: Download math result for job 2
+        uses: actions/download-artifact@v1
+        with:
+          name: homework
+      - name: Print the final result
+        shell: bash
+        run: |
+          value=`cat homework/math-homework.txt`
+          echo The result is $value
 # Azure login
 #     - name: Deploying web app to Azure
 #       uses: azure/webapps-deploy@v1

@@ -1,4 +1,4 @@
-File: .github/workflows/python.yml
+#File: .github/workflows/python.yml
 name: Python package
 
 on: [push,pull_request]

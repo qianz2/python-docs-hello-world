@@ -17,7 +17,7 @@ jobs:
      
     - name: App Service Web App Build Action
       uses: qianz2/appservice-build@master
-    
+  
 # name: Share data between jobs
 
 # on: [push]

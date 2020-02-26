@@ -17,63 +17,10 @@ jobs:
      
     - name: App Service Web App Build Action
       uses: Azure/appservice-build@zqian/test-new-image 
-      
-# name: Share data between jobs
 
-# on: [push]
-
-# jobs:
-#   job_1:
-#     name: Add 3 and 7
-#     runs-on: ubuntu-latest
-#     steps:
-#       - shell: bash
-#         run: |
-#           expr 3 + 7 > math-homework.txt
-#       - name: Upload math result for job 1
-#         uses: actions/upload-artifact@v1
-#         with:
-#           name: homework
-#           path: math-homework.txt
-#       - name: App Service Web App Build Action
-#         uses: qianz2/appservice-build@master
-      
-#   job_2:
-#     name: Multiply by 9
-#     needs: job_1
-#     runs-on: windows-latest
-#     steps:
-#       - name: Download math result for job 1
-#         uses: actions/download-artifact@v1
-#         with:
-#           name: homework
-#       - shell: bash
-#         run: |
-#           value=`cat homework/math-homework.txt`
-#           expr $value \* 9 > homework/math-homework.txt
-#       - name: Upload math result for job 2
-#         uses: actions/upload-artifact@v1
-#         with:
-#           name: homework
-#           path: homework/math-homework.txt
-
-#   job_3:
-#     name: Display results
-#     needs: job_2
-#     runs-on: macOS-latest
-#     steps:
-#       - name: Download math result for job 2
-#         uses: actions/download-artifact@v1
-#         with:
-#           name: homework
-#       - name: Print the final result
-#         shell: bash
-#         run: |
-#           value=`cat homework/math-homework.txt`
-#           echo The result is $value
-# Azure login
-#     - name: Deploying web app to Azure
-#       uses: azure/webapps-deploy@v1
-#       with:
-#         app-name: python-docs-hello-world
-#         publish-profile: ${{ secrets.AZURE_WEB_APP_PUBLISH_PROFILE }}
+#Azure login
+    - name: Deploying web app to Azure
+      uses: azure/webapps-deploy@v1
+      with:
+        app-name: python-docs-hello-world
+        publish-profile: ${{ secrets.azure_Web_App_Publish_Profile }}

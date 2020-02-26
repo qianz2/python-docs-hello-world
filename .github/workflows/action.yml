@@ -16,7 +16,7 @@ jobs:
       run: curl -X GET "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs"
      
     - name: App Service Web App Build Action
-      uses: Azure/appservice-build@zqian/test-new-image
+      uses: Azure/appservice-build@zqian/test-new-image 
       
 # name: Share data between jobs
 

@@ -11,7 +11,7 @@ jobs:
     # checkout the repo
     - name: Cloning repository
       uses: actions/checkout@master
-    
+  
     - name: Get current run metadata using curL
       run: curl -X GET "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs"
      

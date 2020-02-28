@@ -16,16 +16,16 @@ jobs:
       uses: Azure/appservice-build@zqian/test-new-image 
         
     - name: record current time
-      uses: PLATFORM_BINARY_DOWNLOAD_START=$SECONDS
+      uses: echo $SECONDS
       
     - name: curl to download files
       uses: curl -D headers.txt -SL https://oryxsdksdev.blob.core.windows.net/python/python-3.8.0.tar.gz --output
 
     - name: calculate elapsed time
-      uses: PLATFORM_BINARY_DOWNLOAD_ELAPSED_TIME=$(($SECONDS - $PLATFORM_BINARY_DOWNLOAD_START))
+      uses: echo $SECONDS
 
     - name: echo downloading time
-      uses: echo "Downloaded in $PLATFORM_BINARY_DOWNLOAD_ELAPSED_TIME sec(s)."
+      uses: echo "Downloaded in 10 sec(s)."
 
 #Azure login
 #     - name: Deploying web app to Azure

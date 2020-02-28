@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: Cloning repository
  
-      uses: actions/checkout@master
+      uses: actions/checkout@master 
       
     - name: App Service Web App Build Action
 

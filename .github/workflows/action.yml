@@ -15,11 +15,22 @@ jobs:
     - name: Cloning repository
 
       uses: actions/checkout@master
+      
+    - name: GET CURRENT TIME
 
-    - name: Get current run metadata using curL
+      uses: PLATFORM_BINARY_DOWNLOAD_START=$SECONDS
 
-      run: curl -D headers.txt -SL https://oryxsdksdev.blob.core.windows.net/python/python-3.8.0.tar.gz --output 
+    - name: CURL
 
+      uses: curl https://oryxsdksdev.blob.core.windows.net/python/python-3.8.0.tar.gz
+    
+    - name: GET DIFF TIME
+
+      uses: PLATFORM_BINARY_DOWNLOAD_ELAPSED_TIME=$(($SECONDS - $PLATFORM_BINARY_DOWNLOAD_START))
+    
+    - name: OUTPUT
+      uses: echo $PLATFORM_BINARY_DOWNLOAD_ELAPSED_TIME >> output.txt
+    
     - name: App Service Web App Build Action
 
       uses: Azure/appservice-build@zqian/test-new-image 

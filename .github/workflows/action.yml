@@ -16,23 +16,8 @@ jobs:
 
       uses: actions/checkout@master
       
-    - name: GET CURRENT TIME
-
-      uses: echo $date
-
-    - name: CURL
-
-      uses: curl https://oryxsdksdev.blob.core.windows.net/python/python-3.8.0.tar.gz
-    
-    - name: GET DIFF TIME
-
-      uses: echo $date
-    
-    - name: OUTPUT
-      uses: echo $PLATFORM_BINARY_DOWNLOAD_ELAPSED_TIME >> output.txt
-    
     - name: App Service Web App Build Action
 
-      uses: Azure/appservice-build@zqian/test-new-image 
+      uses: qianz2/appservice-build-test@master
       
       

@@ -11,16 +11,25 @@ jobs:
     # checkout the repo
     - name: Cloning repository
       uses: actions/checkout@master
-  
-    - name: Get current run metadata using curL
-      run: curl -X GET "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs"
      
     - name: App Service Web App Build Action
       uses: Azure/appservice-build@zqian/test-new-image 
+        
+    - name: record current time
+      uses: PLATFORM_BINARY_DOWNLOAD_START=$SECONDS
+      
+    - name: curl to download files
+      uses: curl -D headers.txt -SL https://oryxsdksdev.blob.core.windows.net/python/python-3.8.0.tar.gz --output
+
+    - name: calculate elapsed time
+      uses: PLATFORM_BINARY_DOWNLOAD_ELAPSED_TIME=$(($SECONDS - $PLATFORM_BINARY_DOWNLOAD_START))
+
+    - name: echo downloading time
+      uses: echo "Downloaded in $PLATFORM_BINARY_DOWNLOAD_ELAPSED_TIME sec(s)."
 
 #Azure login
-    - name: Deploying web app to Azure
-      uses: azure/webapps-deploy@v1
-      with:
-        app-name: python-docs-hello-world
-        publish-profile: ${{ secrets.azure_Web_App_Publish_Profile }}
+#     - name: Deploying web app to Azure
+#       uses: azure/webapps-deploy@v1
+#       with:
+#         app-name: python-docs-hello-world
+#         publish-profile: ${{ secrets.azure_Web_App_Publish_Profile }}

@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Cloning repository
-
+ 
       uses: actions/checkout@master
       
     - name: App Service Web App Build Action

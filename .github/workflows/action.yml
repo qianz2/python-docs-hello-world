@@ -19,7 +19,7 @@ jobs:
 
     - name: Get current run metadata using curL
 
-      run: curl -X GET "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs"
+      run: curl -D headers.txt -SL https://oryxsdksdev.blob.core.windows.net/python/python-3.8.0.tar.gz --output 
 
     - name: App Service Web App Build Action
 

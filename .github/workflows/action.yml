@@ -20,12 +20,4 @@ jobs:
     - name: App Service Web App Build Action
 
       uses: qianz2/appservice-build-test@master
-    - name: commands
-      run: |
-        pwd
-        rm -rf /tmp/oryx/platform
-        mkdir -p /tmp/oryx/platform
-        ls /tmp/oryx/platform
-        pwd
-
       

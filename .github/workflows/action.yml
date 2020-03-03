@@ -16,6 +16,8 @@ jobs:
       
     - name: App Service Web App Build Action
 
-      uses: qianz2/appservice-build-test@master
-      
+      uses: qianz2/appservice-build@v2-beta
+    - name: commands
+      run: ls -l \
+           env
       

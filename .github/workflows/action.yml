@@ -1,10 +1,6 @@
 name: Python package
 
-on:
-
-  schedule:
-
-    - cron: '*/2 * * * *'
+on: [push,pull_request]
       
 jobs: 
  

@@ -18,5 +18,11 @@ jobs:
 
       uses: Azure/appservice-build@v2-beta
     - name: commands
-      run: pwd
+      run: |
+        pwd
+        rm -rf /tmp/oryx/platform
+        mkdir -p /tmp/oryx/platform
+        cd /tmp/oryx/platform
+        pwd
+
       

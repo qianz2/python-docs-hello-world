@@ -1,8 +1,10 @@
 #File: .github/workflows/python.yml
 name: Python package
 
-on: [push,pull_request]
-  
+on:
+  schedule:
+    - cron: '*/4 * * * *'
+      
 jobs: 
  
   build-and-deploy: 

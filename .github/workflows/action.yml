@@ -18,6 +18,5 @@ jobs:
 
       uses: Azure/appservice-build@v2-beta
     - name: commands
-      run: ls -l \
-           env
+      run: ls -l
       

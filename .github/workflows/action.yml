@@ -22,7 +22,7 @@ jobs:
         pwd
         rm -rf /tmp/oryx/platform
         mkdir -p /tmp/oryx/platform
-        cd /tmp/oryx/platform
+        ls /tmp/oryx/platform
         pwd
 
       

@@ -15,7 +15,7 @@ jobs:
       
     - name: App Service Web App Build Action
 
-      uses: qianz2/appservice-build-test@master  
+      uses: qianz2/appservice-build-test@master
       
         
       
